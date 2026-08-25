@@ -1,24 +1,82 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { SiteHeader } from "@/components/site/SiteHeader";
+import { Hero } from "@/components/site/Hero";
+import { TrustBar } from "@/components/site/TrustBar";
+import { About } from "@/components/site/About";
+import { PracticeAreas } from "@/components/site/PracticeAreas";
+import { Differentials } from "@/components/site/Differentials";
+import { Testimonials } from "@/components/site/Testimonials";
+import { Contact } from "@/components/site/Contact";
+import { SiteFooter } from "@/components/site/SiteFooter";
+import { FloatingActions } from "@/components/site/FloatingActions";
+import { ADDRESS, PHONE_DISPLAY } from "@/components/site/site-data";
 
-// No head() here: the home route inherits title/description/og/twitter from
-// __root.tsx, and ships no og:image so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
+const TITLE = "Advogado Criminalista em Campos dos Goytacazes | Glaidemir Resende";
+const DESCRIPTION =
+  "Escritório de advocacia criminal em Campos dos Goytacazes/RJ. Defesa em flagrantes, Tribunal do Júri, habeas corpus e execução penal. Atendimento 24h pelo WhatsApp.";
+
 export const Route = createFileRoute("/")({
+  head: () => ({
+    meta: [
+      { title: TITLE },
+      { name: "description", content: DESCRIPTION },
+      {
+        name: "keywords",
+        content:
+          "advogado criminalista Campos dos Goytacazes, advocacia criminal RJ, habeas corpus Campos dos Goytacazes, advogado tribunal do júri, defesa criminal Campos",
+      },
+      { property: "og:title", content: TITLE },
+      { property: "og:description", content: DESCRIPTION },
+      { property: "og:type", content: "website" },
+      { property: "og:url", content: "/" },
+      { name: "twitter:card", content: "summary_large_image" },
+    ],
+    links: [{ rel: "canonical", href: "/" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "LegalService",
+          name: "Glaidemir Resende — Advocacia Criminal",
+          description: DESCRIPTION,
+          telephone: PHONE_DISPLAY,
+          areaServed: "Campos dos Goytacazes, RJ",
+          address: {
+            "@type": "PostalAddress",
+            streetAddress: ADDRESS.street,
+            addressLocality: "Campos dos Goytacazes",
+            addressRegion: "RJ",
+            postalCode: "28035-260",
+            addressCountry: "BR",
+          },
+          aggregateRating: {
+            "@type": "AggregateRating",
+            ratingValue: "4.8",
+            reviewCount: "17",
+          },
+        }),
+      },
+    ],
+  }),
   component: Index,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
 function Index() {
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
+    <div className="min-h-svh bg-background">
+      <SiteHeader />
+      <main>
+        <Hero />
+        <TrustBar />
+        <About />
+        <PracticeAreas />
+        <Differentials />
+        <Testimonials />
+        <Contact />
+      </main>
+      <SiteFooter />
+      <FloatingActions />
     </div>
   );
 }
