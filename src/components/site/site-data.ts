@@ -22,6 +22,7 @@ export const NAV_LINKS = [
   { label: "O Escritório", href: "#escritorio" },
   { label: "Atuação", href: "#atuacao" },
   { label: "Diferenciais", href: "#diferenciais" },
+  { label: "Livro", href: "#livro" },
   { label: "Avaliações", href: "#avaliacoes" },
   { label: "Contato", href: "#contato" },
 ];

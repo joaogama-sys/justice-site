@@ -5,6 +5,7 @@ import { TrustBar } from "@/components/site/TrustBar";
 import { About } from "@/components/site/About";
 import { PracticeAreas } from "@/components/site/PracticeAreas";
 import { Differentials } from "@/components/site/Differentials";
+import { Book } from "@/components/site/Book";
 import { Testimonials } from "@/components/site/Testimonials";
 import { Contact } from "@/components/site/Contact";
 import { SiteFooter } from "@/components/site/SiteFooter";
@@ -72,6 +73,7 @@ function Index() {
         <About />
         <PracticeAreas />
         <Differentials />
+        <Book />
         <Testimonials />
         <Contact />
       </main>
