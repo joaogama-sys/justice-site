@@ -1,6 +1,8 @@
 import { Clock, EyeOff, MessagesSquare, Target } from "lucide-react";
 import { Reveal } from "./Reveal";
-import escritorio from "@/assets/escritorio-interior.png";
+import escritorioAsset from "@/assets/escritorio-interior.png.asset.json";
+
+const escritorio = escritorioAsset.url;
 
 const ITEMS = [
   {
