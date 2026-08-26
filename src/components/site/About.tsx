@@ -1,8 +1,11 @@
 import { Reveal } from "./Reveal";
 import { WHATSAPP_URL } from "./site-data";
 import { WhatsAppIcon } from "./WhatsAppIcon";
-import retrato from "@/assets/retrato.png";
-import placa from "@/assets/placa.png";
+import retratoAsset from "@/assets/retrato.png.asset.json";
+import placaAsset from "@/assets/placa.png.asset.json";
+
+const retrato = retratoAsset.url;
+const placa = placaAsset.url;
 
 export function About() {
   return (
