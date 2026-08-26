@@ -73,6 +73,7 @@ function Index() {
         <About />
         <PracticeAreas />
         <Differentials />
+        <Book />
         <Testimonials />
         <Contact />
       </main>
